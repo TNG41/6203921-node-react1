@@ -1,16 +1,15 @@
-import React, { useState, useEffect } from "react";
-import axios from "axios";
+import React, { useState, useEffect } from 'react';
+import axios from 'axios';
 
 function App() {
   const [users, setUsers] = useState([]);
 
   useEffect(() => {
-    axios
-      .get(`http://192.168.56.1:5000/users`)
-      .then((response) => {
+    axios.get(`http://192.168.56.1:5000/users`)
+      .then(response => {
         setUsers(response.data);
       })
-      .catch((error) => {
+      .catch(error => {
         console.log(error);
       });
   }, []);
@@ -19,7 +18,7 @@ function App() {
     <div>
       <h1>User List</h1>
       <ul>
-        {users.map((user) => (
+        {users.map(user => (
           <li key={user.id}>
             <div>{user.name}</div>
             <div>{user.email}</div>
